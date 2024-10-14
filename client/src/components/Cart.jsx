@@ -23,7 +23,7 @@ const Cart = () => {
       <p className="text-red-500 font-bold text-lg">{item.price}</p>
       <p className="line-through text-gray-400 text-sm mb-4">{item.orignalPrice}</p>
       <button className="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600 transition-colors duration-300">
-        Add to Cart
+        remove
       </button>
     </div>
   ));
