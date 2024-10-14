@@ -6,6 +6,7 @@ import SignUp from './pages/SignUp';
 import About from './pages/About';
 import Navbar from './components/Navbar';
 import Footer from './section/Footer';
+import Cart from './components/Cart';
 
 function App() {
   return (
@@ -17,6 +18,8 @@ function App() {
           <Route path='/about' element={<About />} />
           <Route path='/contact' element={<Contact />} />
           <Route path='/signup' element={<SignUp />} />
+          <Route path='/cart' element={<Cart />} />
+          
         </Routes>
         <Footer />
       </main>

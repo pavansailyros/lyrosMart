@@ -74,8 +74,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Logo } from '../assets/images';
 import { navLinks } from '../constants';
+import { useSelector } from 'react-redux';
 
 const Navbar = () => {
+
+  const cartProducts = useSelector(state => state.cart);
   return (
     <header className='px-4 py-4 w-full fixed top-0 left-0 bg-white z-10
      border-b border-gray-200'>
@@ -109,14 +112,7 @@ const Navbar = () => {
         </ul>
 
         <div className="flex items-center space-x-2">
-          {/* <form className="hidden md:flex items-center">
-            <input
-              type="search"
-              placeholder="What are you looking for..."
-              className="px-3 py-1 w-64 border  border-gray-300 rounded-l-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-              aria-label="Search"
-            />
-          </form> */}
+
 
             <form className="hidden md:flex items-center">
             <input
@@ -129,7 +125,7 @@ const Navbar = () => {
 
           <Link to="/cart">
             <button className="px-3 py-1 border border-blue-500 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500">
-              My Cart
+              My Cart {cartProducts.length }
             </button>
           </Link>
         </div>
