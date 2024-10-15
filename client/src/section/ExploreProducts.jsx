@@ -1,7 +1,16 @@
 import React from 'react'
-import {  exploreProducts } from '../constants'
+import {  exploreProducts } from '../constants';
+
+import { add } from '../store/cartSlice';
+import { useDispatch } from 'react-redux';
 
 const ExploreProducts = () => {
+
+    const dispatch = useDispatch();
+  const addToCart = (product) => {
+    dispatch(add(product))
+  }
+
   return (
     <section className="py-8 px-4 ">
     <div className="flex justify-between items-center mb-6">
@@ -22,7 +31,9 @@ const ExploreProducts = () => {
           <p className="text-gray-600">Quantity: {item.quantity}</p>
           <p className="text-red-500 font-bold">{item.price}</p>
           <p className="line-through text-gray-400">{item.orignalPrice}</p>
-          <button className="mt-4 bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 transition duration-300">
+          <button className="mt-4 bg-green-500 text-white px-4 py-2 rounded
+           hover:bg-green-600 transition duration-300"
+           onClick={ () => addToCart(item)}>
             Add to Cart
           </button>
         </div>

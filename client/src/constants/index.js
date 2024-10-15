@@ -32,7 +32,8 @@ export const navLinks = [
 
   //aboutlinks
   export const aboutlinks = [
-    {
+    {   
+        
         imgURL: FreeDelivery,
         heading: "Free Delivery",
         text:"For all oders over $100"
@@ -40,6 +41,7 @@ export const navLinks = [
 
 
     {
+        
         imgURL: Refundable,
         heading: "Refundable",
         text:"If your item have no damage we agree to refund it. q "
@@ -47,6 +49,7 @@ export const navLinks = [
 
 
     {
+        
         imgURL: SecurePayment,
         heading: "Secure Payment",
         text:"100% secure payment"

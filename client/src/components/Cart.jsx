@@ -3,14 +3,20 @@
 
 
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector,useDispatch } from 'react-redux';
+import { remove } from '../store/cartSlice';
 
 const Cart = () => {
   const productCart = useSelector((state) => state.cart);
+  const dispatch = useDispatch();
+
+  const removeFromCart = (imgURL) => {
+    dispatch(remove(imgURL));
+  };
 
   const cards = productCart.map((item) => (
     <div
-      key={item.heading}
+    key={item.imgURL}
       className="bg-white shadow-lg rounded-lg p-6 flex flex-col items-center w-[280px] h-auto border border-gray-200 hover:shadow-xl transition-shadow duration-300"
     >
       <img
@@ -22,7 +28,9 @@ const Cart = () => {
       <p className="text-gray-600 text-sm mb-2">Quantity: {item.quantity}</p>
       <p className="text-red-500 font-bold text-lg">{item.price}</p>
       <p className="line-through text-gray-400 text-sm mb-4">{item.orignalPrice}</p>
-      <button className="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600 transition-colors duration-300">
+      <button className="bg-green-500 text-white px-4 py-2 rounded-md
+       hover:bg-green-600 transition-colors duration-300"
+       onClick={() => removeFromCart(item.imgURL)}>
         remove
       </button>
     </div>
